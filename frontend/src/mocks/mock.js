@@ -24,7 +24,7 @@ export const skills = {
   ],
   "Backend": [
     { name: "Laravel", icon: Server },
-    { name: "Node.js", icon: TerminalSquare },
+    { name: "Express.js", icon: TerminalSquare },
     { name: "MySQL", icon: Database }
   ],
   "Mobile": [
