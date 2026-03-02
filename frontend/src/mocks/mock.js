@@ -59,14 +59,33 @@ export const education = [
   
 export const experience = [
   {
-      id: 1,
-      title: "Desarrollador en Formación",
-      company: "Proyectos Académicos",
-      startDate: "2020",
-      endDate: "Presente",
-      description: "Desarrollo de aplicaciones web y móviles como parte de la formación universitaria. Implementación de soluciones utilizando Laravel, React y Kotlin.",
-      technologies: ["Laravel", "React", "Kotlin", "MySQL"]
+    id: 1,
+    title: "Ingeniero Civil Informático en Formación",
+    company: "Proyectos Académicos",
+    startDate: "2020",
+    endDate: "Presente",
+    description: "Desarrollo de consola y móviles como parte de la formación universitaria. Implementación de soluciones utilizando  C, C#, C++, PostgreSQL, Laravel y Kotlin.",
+    technologies: ["C", "C#", "C++", "PostreSQL", "Laravel", "Kotlin"]
+  },
+  {
+    id: 2,
+    title: "Desarrollador Full Stack & Móvil Autodidacta",
+    company: "Desarrollo Independiente",
+    startDate: "2024",
+    endDate: "Presente",
+    description: "Diseño y desarrollo de aplicaciones web y móviles. Construcción de plataformas de gestión (como sistemas para el sector gastronómico) y herramientas de seguimiento de datos, implementando una arquitectura basada en el patrón MVC. Creación de APIs robustas con Laravel, interfaces de usuario dinámicas con React y desarrollo de aplicaciones nativas para Android utilizando Kotlin.",
+    technologies: ["Laravel", "React", "Kotlin", "API REST", "MVC", "Bootstrap"]
+  },
+  {
+    id: 4,
+    title: "Practicante en Desarrollo TI",
+    company: "Casino Marina del Sol - Talcahuano",
+    startDate: "Enero 2026",
+    endDate: "Febrero 2026", 
+    description: "Desarrollo de soluciones web enfocadas en la optimización de procesos internos. Creación de interfaces de usuario interactivas, modernas y responsivas utilizando React y Tailwind CSS.",
+    technologies: ["React", "Express.js", "Tailwind CSS", "API REST"]
   }
+  
 ];
   
 // Mock projects - Will be fetched from API later
