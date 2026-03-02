@@ -28,10 +28,11 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0b]/80 backdrop-blur-[10px] border-b border-zinc-800/50 transition-all duration-300 ease-in-out">
       <div className="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between">
         
-        <div className="text-2xl font-black text-zinc-200 flex items-center gap-1">
-          <span className="text-zinc-200">JR</span>
-          <span className="text-[#00ff88] text-[2rem]">.</span>
-        </div>
+      <div className="text-2xl font-black flex items-center gap-1 font-mono tracking-tight">
+        <span className="text-[#00ff88] animate-pulse">&lt;</span>
+        <span className="text-zinc-200">JR</span>
+        <span className="text-[#00ff88] animate-pulse">/&gt;</span>
+      </div>
 
         <nav className="hidden md:flex gap-2">
           {navItems.map((item, index) => (
