@@ -16,9 +16,9 @@ const HomePage = () => {
       <Header />
       <Hero />
       <About />
+      <Education />
       <Skills />
       <Experience />
-      <Education />
       <Projects />
       <Contact />
       <Footer />
