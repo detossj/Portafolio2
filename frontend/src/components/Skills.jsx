@@ -5,11 +5,11 @@ import { skills, softSkills } from '@/mocks/mock';
 
 const Skills = () => {
   return (
-    <section id="skills" className="bg-[#0a0a0b] px-6 py-16 md:px-8 md:pt-32 md:min-h-screen ">
+    <section id="skills" className="bg-[#0a0a0b] px-6 py-16 md:px-8 md:min-h-screen ">
       <div className="mx-auto max-w-[1400px]">
         
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200">
+          <h2 className="mb-4 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200 pt-5">
             Habilidades
           </h2>
           <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-[#00ff88] to-[#00d4ff]"></div>
