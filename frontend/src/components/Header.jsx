@@ -1,20 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X, Github } from 'lucide-react';
 import { Button } from './ui/button';
+import { navItems } from '@/mocks/mock';
 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navItems = [
-    { label: 'Inicio', href: '#hero' },
-    { label: 'Sobre mí', href: '#about' },
-    { label: 'Habilidades', href: '#skills' },
-    { label: 'Experiencia', href: '#experience' },
-    { label: 'Proyectos', href: '#projects' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Contacto', href: '#contact' }
-  ];
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
