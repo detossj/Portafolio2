@@ -9,7 +9,7 @@ const About = () => {
       <div className="w-full mx-auto max-w-[1400px]">
         
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200">
+          <h2 className="mb-4 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200 pt-5">
             Sobre mí
           </h2>
           <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-[#00ff88] to-[#00d4ff]"></div>
