@@ -2,6 +2,16 @@ import { FileCode2, Database, Smartphone, LayoutTemplate, Server, Palette, Code,
 // Mock data for Jorge Rubilar Portfolio
 // This will be replaced with API calls later
 
+export const navItems = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Sobre mí', href: '#about' },
+  { label: 'Habilidades', href: '#skills' },
+  { label: 'Experiencia', href: '#experience' },
+  { label: 'Proyectos', href: '#projects' },
+  { label: 'Contacto', href: '#contact' }
+];
+
+
 export const personalInfo = {
   name: "Jorge Rubilar",
   title: "Estudiante de Ingeniería Civil Informática",
