@@ -51,7 +51,7 @@ export const education = [
     degree: "Ingeniería Civil Informática",
     institution: "Universidad Católica de la Santísima Concepción (UCSC)",
     status: "En curso",
-    startDate: "2020",
+    startDate: "2022",
     endDate: "Presente",
     description: "Formación integral en desarrollo de software, bases de datos, algoritmos y estructuras de datos, ingeniería de software y desarrollo multiplataforma."
   }
@@ -62,7 +62,7 @@ export const experience = [
     id: 1,
     title: "Ingeniero Civil Informático en Formación",
     company: "Proyectos Académicos",
-    startDate: "2020",
+    startDate: "2022",
     endDate: "Presente",
     description: "Desarrollo de consola y móviles como parte de la formación universitaria. Implementación de soluciones utilizando  C, C#, C++, PostgreSQL, Laravel y Kotlin.",
     technologies: ["C", "C#", "C++", "PostreSQL", "Laravel", "Kotlin"]
@@ -136,40 +136,30 @@ export const featuredProjects = [
   }
 ];
   
-// Mock blog posts - Will be fetched from API later
-export const blogPosts = [
+export const githubRepos = [
   {
-    id: 1,
-    title: "Introducción a Kotlin para Android",
-    excerpt: "Descubre por qué Kotlin se ha convertido en el lenguaje preferido para desarrollo Android y cómo empezar a utilizarlo en tus proyectos.",
-    content: "Contenido completo del artículo...",
-    image: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&h=600&fit=crop",
-    author: "Jorge Rubilar",
-    publishedAt: "2024-03-15",
-    tags: ["Kotlin", "Android", "Mobile Development"],
-    readTime: "5 min"
+    id: 'gh1',
+    name: 'portfolio-react',
+    description: 'Portfolio personal desarrollado con React y Tailwind CSS',
+    stars: 12,
+    language: 'JavaScript',
+    url: 'https://github.com/detossj'
   },
   {
-    id: 2,
-    title: "Laravel vs Django: ¿Cuál elegir?",
-    excerpt: "Comparación detallada entre dos de los frameworks web más populares. Analizamos ventajas, desventajas y casos de uso.",
-    content: "Contenido completo del artículo...",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
-    author: "Jorge Rubilar",
-    publishedAt: "2024-02-28",
-    tags: ["Laravel", "Django", "Backend"],
-    readTime: "8 min"
+    id: 'gh2',
+    name: 'laravel-api-boilerplate',
+    description: 'Template para APIs REST con Laravel, JWT y mejores prácticas',
+    stars: 8,
+    language: 'PHP',
+    url: 'https://github.com/detossj'
   },
   {
-    id: 3,
-    title: "Mi experiencia aprendiendo React",
-    excerpt: "Lecciones aprendidas, recursos útiles y consejos para desarrolladores que están comenzando con React.",
-    content: "Contenido completo del artículo...",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop",
-    author: "Jorge Rubilar",
-    publishedAt: "2024-02-10",
-    tags: ["React", "JavaScript", "Frontend"],
-    readTime: "6 min"
+    id: 'gh3',
+    name: 'kotlin-todo-app',
+    description: 'Aplicación de tareas nativa para Android con arquitectura MVVM',
+    stars: 5,
+    language: 'Kotlin',
+    url: 'https://github.com/detossj'
   }
 ];
   
