@@ -9,7 +9,7 @@ const Experience = () => {
   return (
     <section 
       id="experience" 
-      className="py-16 px-6 md:py-24 md:px-8 md:min-h-screen bg-[#0f0f10]"
+      className="py-16 px-6 md:py-24 md:px-8 md:min-h-screen bg-[#0a0a0b]"
     >
       <div className="section-container">
 
