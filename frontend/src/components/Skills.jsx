@@ -5,7 +5,7 @@ import { skills, softSkills } from '@/mocks/mock';
 
 const Skills = () => {
   return (
-    <section id="skills" className="bg-[#0a0a0b] px-6 py-16 md:px-8 md:min-h-screen ">
+    <section id="skills" className="bg-[#0f0f10] px-6 py-16 md:px-8 md:min-h-screen ">
       <div className="mx-auto max-w-[1400px]">
         
         <div className="mb-16 text-center">
