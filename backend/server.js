@@ -1,22 +1,19 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
-
-dotenv.config();
+import configEnv from './src/config/configEnv.js'; 
+import portfolioRoutes from './src/routes/portfolioRoutes.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = configEnv.PORT; 
 
-// Configuración básica 
 app.use(cors({
-    origin: 'http://localhost:5173', // Conectamos con Vite del frontend
+    origin: 'http://localhost:5173', 
     credentials: true
 }));
 app.use(express.json());
-app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+app.use('/api/portfolio', portfolioRoutes);
 
-// Primera ruta (como si fuera tu App.jsx)
 app.get('/', (req, res) => {
     res.json({ message: '¡Backend del portafolio corriendo al 100%!' });
 });
