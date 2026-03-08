@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Menu, X, Github } from 'lucide-react';
 import { Button } from './ui/button';
-import { navItems } from '@/mocks/mock';
+import usePortfolioStore from '@/stores/portfolioStore';
 
 
 const Header = () => {
+
+  const navItems = usePortfolioStore((state) => state.nav);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (href) => {
