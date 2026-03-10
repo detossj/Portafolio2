@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { featuredProjects, githubRepos } from '@/mocks/mock';
+import React, { useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
-import { Github, ExternalLink, Code2 } from 'lucide-react';
+import { Github, ExternalLink, Code2, Globe } from 'lucide-react';
+import usePortfolioStore from '@/stores/portfolioStore'; 
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [repos, setRepos] = useState([]);
+  const projectsData = usePortfolioStore((state) => state.projects);
   const [activeTab, setActiveTab] = useState('featured');
-  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    // Load featured projects from mock
-    setProjects(featuredProjects);
-    
-    // Simulate API call for GitHub repos
-    setLoading(true);
-    setTimeout(() => {
-      setRepos(githubRepos);
-      setLoading(false);
-    }, 1000);
-  }, []);
+  const featured = projectsData?.featured || [];
+  const githubRepos = projectsData?.github || [];
 
   const ProjectCard = ({ project }) => (
     <Card className="group bg-[#1a1a1b] border border-[#27272a] overflow-hidden transition-all duration-300 ease-in-out hover:border-[#00ff88] hover:-translate-y-[5px] hover:shadow-[0_10px_40px_rgba(0,255,136,0.2)]">
@@ -61,7 +50,7 @@ const Projects = () => {
         <h3 className="text-2xl font-bold text-zinc-100 mb-3 group-hover:text-[#00ff88] transition-colors">{project.title}</h3>
         <p className="text-zinc-400 leading-relaxed mb-4 text-[0.95rem]">{project.description}</p>
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech, index) => (
+          {project.technologies?.map((tech, index) => (
             <Badge 
               key={index} 
               variant="outline" 
@@ -126,21 +115,23 @@ const Projects = () => {
 
           <TabsContent value="featured" className="mt-0 outline-none">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {projects.map((project) => (
+              {featured.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </div>
+            {featured.length === 0 && (
+              <div className="text-center text-zinc-400 p-12">No hay proyectos destacados aún.</div>
+            )}
           </TabsContent>
 
           <TabsContent value="github" className="mt-0 outline-none">
-            {loading ? (
-              <div className="text-center text-zinc-400 p-12 text-lg animate-pulse">Cargando repositorios...</div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
-                {repos.map((repo) => (
-                  <GithubRepoCard key={repo.id} repo={repo} />
-                ))}
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+              {githubRepos.map((repo) => (
+                <GithubRepoCard key={repo.id} repo={repo} />
+              ))}
+            </div>
+            {githubRepos.length === 0 && (
+              <div className="text-center text-zinc-400 p-12">No hay repositorios disponibles.</div>
             )}
           </TabsContent>
         </Tabs>
