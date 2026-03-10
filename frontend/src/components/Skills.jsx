@@ -1,22 +1,25 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { skills, softSkills } from '@/mocks/mock';
+import * as LucideIcons from 'lucide-react'; 
+import usePortfolioStore from '@/stores/portfolioStore';
 
 const Skills = () => {
+  const skills = usePortfolioStore((state) => state.skills);
+
   return (
-    <section id="skills" className="bg-[#0f0f10] px-6 py-16 md:px-8 md:min-h-screen ">
+    <section id="skills" className="bg-[#0f0f10] px-6 py-16 md:min-h-screen md:px-8">
       <div className="mx-auto max-w-[1400px]">
         
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200 pt-5">
+          <h2 className="mb-4 pt-5 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200">
             Habilidades
           </h2>
           <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-[#00ff88] to-[#00d4ff]"></div>
         </div>
 
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {Object.entries(skills).map(([category, skillList]) => (
+          {Object.entries(skills?.categories || {}).map(([category, skillList]) => (
             <Card 
               key={category} 
               className="border-zinc-800 bg-[#1a1a1b] transition-all duration-300 hover:-translate-y-1 hover:border-[#00ff88] hover:shadow-[0_10px_30px_rgba(0,255,136,0.1)]"
@@ -29,7 +32,8 @@ const Skills = () => {
               
               <CardContent className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-1">
                 {skillList.map((skill, index) => {
-                  const IconComponent = skill.icon;
+                  const IconComponent = LucideIcons[skill.icon];
+                  
                   return (
                     <div 
                       key={index} 
@@ -54,7 +58,7 @@ const Skills = () => {
             Habilidades Blandas
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {softSkills.map((skill, index) => (
+            {skills?.soft_skills?.map((skill, index) => (
               <Badge 
                 key={index} 
                 variant="secondary" 
