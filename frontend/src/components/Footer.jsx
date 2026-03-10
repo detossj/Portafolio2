@@ -38,7 +38,7 @@ const Footer = () => {
             <h4 className="text-base font-semibold text-[#e4e4e7] mb-2">Conecta conmigo</h4>
             <div className="flex gap-4">
               <a 
-                href={footer.githubUrl} 
+                href={footer?.githubUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-[#1a1a1b] border border-[#27272a] flex items-center justify-center text-[#a1a1aa] transition-all duration-300 hover:bg-[#00ff88]/10 hover:border-[#00ff88] hover:text-[#00ff88] hover:-translate-y-[2px]"
@@ -47,7 +47,7 @@ const Footer = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a 
-                href={`mailto:${footer.email}`}
+                href={`mailto:${footer?.email}`}
                 className="w-10 h-10 rounded-lg bg-[#1a1a1b] border border-[#27272a] flex items-center justify-center text-[#a1a1aa] transition-all duration-300 hover:bg-[#00ff88]/10 hover:border-[#00ff88] hover:text-[#00ff88] hover:-translate-y-[2px]"
                 aria-label="Email"
               >
@@ -59,7 +59,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-[#27272a] flex flex-col md:flex-row justify-between items-center flex-wrap gap-4 text-center md:text-left">
           <p className="text-[#71717a] text-[0.85rem]">
-            © {currentYear} {footer.name}. Todos los derechos reservados.
+            © {currentYear} {footer?.name}. Todos los derechos reservados.
           </p>
         
         </div>
