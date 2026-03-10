@@ -5,10 +5,12 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Mail, Phone, MapPin, Github, Download, Send } from 'lucide-react';
-import { contact, personalInfo } from '@/mocks/mock';
 import { toast } from "sonner";
+import usePortfolioStore from '@/stores/portfolioStore';
 
 const Contact = () => {
+  const contact = usePortfolioStore((state) => state.contact) || {};
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -62,8 +64,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-[0.85rem] text-[#71717a] mb-1 uppercase tracking-wider">Email</p>
-                      <a href={`mailto:${personalInfo.email}`} className="text-[#e4e4e7] text-base font-medium break-all no-underline transition-colors duration-300 hover:text-[#00ff88]">
-                        {personalInfo.email}
+                      <a href={`mailto:${contact.email}`} className="text-[#e4e4e7] text-base font-medium break-all no-underline transition-colors duration-300 hover:text-[#00ff88]">
+                        {contact.email}
                       </a>
                     </div>
                   </div>
@@ -74,8 +76,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-[0.85rem] text-[#71717a] mb-1 uppercase tracking-wider">Teléfono</p>
-                      <a href={`tel:${personalInfo.phone}`} className="text-[#e4e4e7] text-base font-medium break-all no-underline transition-colors duration-300 hover:text-[#00ff88]">
-                        {personalInfo.phone}
+                      <a href={`tel:${contact.phone}`} className="text-[#e4e4e7] text-base font-medium break-all no-underline transition-colors duration-300 hover:text-[#00ff88]">
+                        {contact.phone}
                       </a>
                     </div>
                   </div>
@@ -97,12 +99,12 @@ const Contact = () => {
                     <div>
                       <p className="text-[0.85rem] text-[#71717a] mb-1 uppercase tracking-wider">GitHub</p>
                       <a 
-                        href={personalInfo.githubUrl} 
+                        href={contact.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-[#e4e4e7] text-base font-medium break-all no-underline transition-colors duration-300 hover:text-[#00ff88]"
                       >
-                        {personalInfo.github}
+                        {contact.github}
                       </a>
                     </div>
                   </div>
@@ -111,7 +113,7 @@ const Contact = () => {
                 <Button 
                   onClick={handleDownloadCV} 
                   variant="outline"
-                  className="w-full mt-auto bg-[#0a0a0b] text-[#00ff88] border-[#00ff88] font-semibold py-6 flex items-center justify-center gap-2 transition-all duration-300 hover:bg-[#00ff88]/10 hover:-translate-y-[2px] hover:shadow-[0_10px_30px_rgba(0,255,136,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                  className="w-full mt-auto bg-[#0a0a0b] text-[#00ff88] border-[#00ff88] font-semibold py-6 flex items-center justify-center gap-2 transition-all duration-300 hover:bg-[#00ff88]/10 hover:-translate-y-[2px] hover:shadow-[0_10px_30px_rgba(0,255,136,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none hover:text-[#ffffff]"
                 >
                   <Download className="w-4 h-4" />
                   Descargar CV
@@ -119,7 +121,6 @@ const Contact = () => {
               </CardContent>
             </Card>
           </div>
-
 
           <div className="contact-form-wrapper h-full">
             <Card className="bg-[#1a1a1b] border border-[#27272a] h-full flex flex-col">
