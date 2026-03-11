@@ -8,7 +8,8 @@ import {
     getExperience,
     getProjects,
     getContact,
-    getFooter
+    getFooter,
+    getTheme
 } from '../controllers/portfolioController.js';
 
 const router = express.Router();
@@ -22,5 +23,6 @@ router.get('/experience', getExperience);
 router.get('/projects', getProjects);
 router.get('/contact', getContact);
 router.get('/footer', getFooter);
+router.get('/theme', getTheme);
 
 export default router;
