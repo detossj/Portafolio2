@@ -90,3 +90,13 @@ export const getFooter = async (req, res) => {
         res.status(500).json({ error: 'Error al obtener Footer desde Laravel' });
     }
 };
+
+export const getTheme = async (req, res) => {
+    try {
+        const response = await apiClient.get('/portfolio/theme');
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error real de Axios:", error.message);
+        res.status(500).json({ error: 'Error al obtener Theme desde Laravel' });
+    }
+};
