@@ -6,7 +6,7 @@ const About = () => {
 
   const about = usePortfolioStore((state) => state.about);
   return (
-    <section id="about" className="bg-[#0f0f10] px-6 py-16 md:px-8 md:min-h-screen flex items-center">
+    <section id="about" className="bg-brand-surface-alt px-6 py-16 md:px-8 md:min-h-screen flex items-center">
       
       <div className="w-full mx-auto max-w-[1400px]">
         
@@ -14,7 +14,7 @@ const About = () => {
           <h2 className="mb-4 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200 pt-5">
             Sobre mí
           </h2>
-          <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-[#00ff88] to-[#00d4ff]"></div>
+          <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-brand-primary to-brand-secondary"></div>
         </div>
 
         <div className="mx-auto max-w-[1200px]">
@@ -24,9 +24,9 @@ const About = () => {
               <img 
                 src={about?.avatar} 
                 alt={about?.name}
-                className="relative z-10 h-full w-full rounded-2xl border-[3px] border-[#00ff88] object-cover"
+                className="relative z-10 h-full w-full rounded-2xl border-[3px] border-brand-primary object-cover"
               />
-              <div className="absolute -bottom-4 -right-4 left-4 top-4 z-0 rounded-2xl border-2 border-[#00ff88]/30"></div>
+              <div className="absolute -bottom-4 -right-4 left-4 top-4 z-0 rounded-2xl border-2 border-brand-primary/30"></div>
             </div>
 
             <div className="text-zinc-400">
@@ -42,7 +42,7 @@ const About = () => {
                 return (
                   <div key={index} className="flex items-start gap-4">
                     {IconComponent ? (
-                      <IconComponent className="h-10 w-10 shrink-0 rounded-lg bg-[#00ff88]/10 p-2 text-[#00ff88]" />
+                      <IconComponent className="h-10 w-10 shrink-0 rounded-lg bg-brand-primary/10 p-2 text-brand-primary" />
                     ) : (
                       /* Un fallback en caso de que el icono no exista o venga mal escrito */
                       <div className="h-10 w-10 shrink-0 rounded-lg bg-red-500/10 p-2 text-red-500">?</div>
