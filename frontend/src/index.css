@@ -85,6 +85,18 @@ body {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* VARIABLES DINÁMICAS */
+  /* Ponemos un color de respaldo (fallback) por si tarda en cargar la API */
+  --color-brand-primary: var(--color-brand-primary, #00ff88);
+  --color-brand-secondary: var(--color-brand-secondary, #00d4ff);
+  --color-brand-bg: var(--color-brand-bg, #0a0a0b);
+  --color-brand-surface: var(--color-brand-surface, #1a1a1b);
+  --color-brand-surface-alt: var(--color-brand-surface-alt, #0f0f10);
+  --color-brand-border: var(--color-brand-border, #27272a);
+  --color-brand-text-primary: var(--color-brand-text-primary, #e4e4e7);
+  --color-brand-text-secondary: var(--color-brand-text-secondary, #a1a1aa);
+  --color-brand-text-muted: var(--color-brand-text-muted, #71717a);
 }
 
 :root {
