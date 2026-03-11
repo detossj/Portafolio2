@@ -8,7 +8,8 @@ import {
   getExperience, 
   getProjects, 
   getContact, 
-  getFooter 
+  getFooter,
+  getTheme 
 } from '@/services/portfolioService'; 
 
 const usePortfolioStore = create((set, get) => ({
@@ -21,6 +22,7 @@ const usePortfolioStore = create((set, get) => ({
   projects: [],
   contact: null,
   footer: null,
+  theme: null,
   cargando: false,
 
   fetchNav: async () => {
@@ -149,6 +151,20 @@ const usePortfolioStore = create((set, get) => ({
     }
   },
 
+  fetchTheme: async () => {
+    if (get().theme !== null) return; 
+    set({ cargando: true });
+    try {
+      const data = await getTheme();
+      set({ theme: data });
+    } catch (error) {
+      console.error('Error fetching Theme en Zustand:', error);
+      set({ theme: null });
+    } finally {
+      set({ cargando: false });
+    }
+  },
+
   // Una función maestra para cargar todo de golpe al entrar a la página
   fetchAll: async () => {
     set({ cargando: true });
@@ -163,7 +179,8 @@ const usePortfolioStore = create((set, get) => ({
         get().fetchExperience(),
         get().fetchProjects(),
         get().fetchContact(),
-        get().fetchFooter()
+        get().fetchFooter(),
+        get().fetchTheme()
       ]);
     } catch (error) {
       console.error("Error cargando toda la data inicial:", error);
