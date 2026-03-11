@@ -97,3 +97,13 @@ export const getFooter = async () => {
     throw error;
   }
 };
+
+export const getTheme = async () => {
+  try {
+    const response = await api_url.get('/portfolio/theme');
+    return response.data;
+  } catch (error) {
+    console.error("Error cargando tema:", error);
+    throw error;
+  }
+};
