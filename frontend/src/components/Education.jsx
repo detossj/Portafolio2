@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Card, CardContent, CardHeader } from './ui/card';
 import { GraduationCap, Calendar } from 'lucide-react';
 import usePortfolioStore from '@/stores/portfolioStore';
@@ -10,34 +9,34 @@ const Education = () => {
   return (
     <section 
       id="education" 
-      className="py-16 px-6 md:py-24 md:px-8 bg-[#0a0a0b]"
+      className="py-16 px-6 md:py-24 md:px-8 bg-brand-bg"
     >
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-8 max-w-[900px] mx-auto">
           {education.map((education) => (
             <Card 
               key={education?.id} 
-              className="bg-[#1a1a1b] border border-[#27272a] transition-all duration-300 ease-in-out overflow-hidden hover:border-[#00ff88] hover:-translate-y-[5px] hover:shadow-[0_10px_30px_rgba(0,255,136,0.1)]"
+              className="bg-brand-surface border border-brand-border transition-all duration-300 ease-in-out overflow-hidden hover:border-brand-primary hover:-translate-y-[5px] hover:shadow-xl hover:shadow-brand-primary/10"
             >
-              <CardHeader className="bg-gradient-to-br from-[#00ff88]/10 to-[#00d4ff]/10 flex items-center justify-center p-8 border-b border-[#27272a]">
-                <div className="w-20 h-20 rounded-full bg-[#00ff88] flex items-center justify-center">
-                  <GraduationCap className="w-10 h-10 text-[#0a0a0b]" />
+              <CardHeader className="bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 flex items-center justify-center p-8 border-b border-brand-border">
+                <div className="w-20 h-20 rounded-full bg-brand-primary flex items-center justify-center">
+                  <GraduationCap className="w-10 h-10 text-brand-bg" />
                 </div>
               </CardHeader>
               
               <CardContent className="p-6">
-                <h3 className="text-2xl font-bold text-[#e4e4e7] mb-3">{education?.degree}</h3>
-                <p className="text-[#a1a1aa] text-[1.1rem] font-medium mb-4">{education?.institution}</p>
+                <h3 className="text-2xl font-bold text-brand-text-primary mb-3">{education?.degree}</h3>
+                <p className="text-brand-text-secondary text-[1.1rem] font-medium mb-4">{education?.institution}</p>
                 
-                <div className="flex items-center gap-2 text-[#71717a] text-sm mb-4 flex-wrap">
+                <div className="flex items-center gap-2 text-brand-text-muted text-sm mb-4 flex-wrap">
                   <Calendar className="w-4 h-4" />
                   <span>{education?.startDate} - {education?.endDate}</span>
-                  <span className="bg-[#00ff88]/10 text-[#00ff88] px-3 py-1 rounded-full font-semibold text-[0.85rem]">
+                  <span className="bg-brand-primary/10 text-brand-primary px-3 py-1 rounded-full font-semibold text-[0.85rem]">
                     {education?.status}
                   </span>
                 </div>
                 
-                <p className="text-[#71717a] leading-relaxed text-[0.95rem]">{education?.description}</p>
+                <p className="text-brand-text-muted leading-relaxed text-[0.95rem]">{education?.description}</p>
               </CardContent>
             </Card>
           ))}
