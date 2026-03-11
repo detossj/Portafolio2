@@ -8,24 +8,24 @@ const Skills = () => {
   const skills = usePortfolioStore((state) => state.skills);
 
   return (
-    <section id="skills" className="bg-[#0f0f10] px-6 py-16 md:min-h-screen md:px-8">
+    <section id="skills" className="bg-brand-surface-alt px-6 py-16 md:min-h-screen md:px-8">
       <div className="mx-auto max-w-[1400px]">
         
         <div className="mb-16 text-center">
-          <h2 className="mb-4 pt-5 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-zinc-200">
+          <h2 className="mb-4 pt-5 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-brand-text-primary">
             Habilidades
           </h2>
-          <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-[#00ff88] to-[#00d4ff]"></div>
+          <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-brand-primary to-brand-secondary"></div>
         </div>
 
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {Object.entries(skills?.categories || {}).map(([category, skillList]) => (
             <Card 
               key={category} 
-              className="border-zinc-800 bg-[#1a1a1b] transition-all duration-300 hover:-translate-y-1 hover:border-[#00ff88] hover:shadow-[0_10px_30px_rgba(0,255,136,0.1)]"
+              className="border-brand-border bg-brand-surface transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary hover:shadow-xl hover:shadow-brand-primary/10"
             >
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-[#00ff88]">
+                <CardTitle className="text-xl font-bold text-brand-primary">
                   {category}
                 </CardTitle>
               </CardHeader>
@@ -37,12 +37,12 @@ const Skills = () => {
                   return (
                     <div 
                       key={index} 
-                      className="flex items-center gap-3 rounded-lg border border-zinc-800/50 bg-[#0a0a0b]/50 p-3 transition-colors hover:border-[#00ff88]/50 hover:bg-[#00ff88]/5"
+                      className="flex items-center gap-3 rounded-lg border border-brand-border/50 bg-brand-bg/50 p-3 transition-colors hover:border-brand-primary/50 hover:bg-brand-primary/5"
                     >
                       {IconComponent && (
-                        <IconComponent className="h-5 w-5 text-[#00ff88]" />
+                        <IconComponent className="h-5 w-5 text-brand-primary" />
                       )}
-                      <span className="text-[0.95rem] font-medium text-zinc-200">
+                      <span className="text-[0.95rem] font-medium text-brand-text-primary">
                         {skill.name}
                       </span>
                     </div>
@@ -54,7 +54,7 @@ const Skills = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <h3 className="mb-8 text-3xl font-bold text-zinc-200">
+          <h3 className="mb-8 text-3xl font-bold text-brand-text-primary">
             Habilidades Blandas
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
@@ -62,14 +62,14 @@ const Skills = () => {
               <Badge 
                 key={index} 
                 variant="secondary" 
-                className="cursor-default border border-zinc-800 bg-[#1a1a1b] px-6 py-3 text-[0.95rem] font-medium text-[#00ff88] transition-all duration-300 hover:-translate-y-1 hover:border-[#00ff88] hover:bg-[#00ff88]/10"
+                className="cursor-default border border-brand-border bg-brand-surface px-6 py-3 text-[0.95rem] font-medium text-brand-primary transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary hover:bg-brand-primary/10"
               >
                 {skill}
               </Badge>
             ))}
           </div>
         </div>
-
+        
       </div>
     </section>
   );
