@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowDown, Github, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import usePortfolioStore from '@/stores/portfolioStore';
-
+import Aurora from './ui/Aurora'; 
 
 const Hero = () => {
   const hero = usePortfolioStore((state) => state.hero);
+  const [auroraColors, setAuroraColors] = useState(['', '', '']);
+  useEffect(() => {
+    const getRealColor = (cssVar, fallbackHex) => {
+      let color = getComputedStyle(document.documentElement).getPropertyValue(cssVar).trim();
+      
+      if (!color || color.includes('var(')) {
+        return fallbackHex;
+      }
+      return color;
+    };
+
+    const primary = getRealColor('--color-brand-primary', '');
+    const secondary = getRealColor('--color-brand-secondary', '');
+    const bg = getRealColor('--color-brand-bg', '');
+    
+    setAuroraColors([primary, secondary, bg]);
+  }, [hero]); 
   const scrollToContact = () => {
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -17,20 +34,19 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-brand-bg to-brand-surface px-6 py-24 md:px-8"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-bg px-6 py-24 md:px-8"
     >
-      <div 
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `
-            radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--color-brand-primary) 10%, transparent) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--color-brand-secondary) 10%, transparent) 0%, transparent 50%)
-          `
-        }}
-      />
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
+        <Aurora
+          colorStops={auroraColors}
+          blend={0.5}
+          amplitude={1}
+          speed={1}
+        />
+      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px]">
-        <div className="max-w-[800px]">
+        <div className="max-w-[800px] ml-[10%]">
           <div className="mb-4 text-xl font-medium tracking-wide text-brand-primary">
             {hero?.greeting}
           </div>
@@ -60,18 +76,18 @@ const Hero = () => {
             <Button 
               variant="outline" 
               onClick={() => window.open(hero?.githubUrl, '_blank')}
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-brand-primary bg-transparent px-8 py-3 font-semibold text-brand-primary transition-all duration-300 hover:-translate-y-1 hover:bg-brand-primary/10 sm:w-auto"
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-brand-primary bg-brand-bg/50 px-8 py-3 font-semibold text-brand-primary backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-brand-primary/10 sm:w-auto"
             >
               <Github className="h-4 w-4" />
               Ver GitHub
             </Button>
           </div>
         </div>
-        
       </div>
+      
       <button 
         onClick={scrollToAbout} 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer border-none bg-transparent p-2 text-brand-primary transition-all duration-300 hover:-translate-x-1/2 hover:translate-y-1 hover:brightness-110"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer border-none bg-transparent p-2 text-brand-primary transition-all duration-300 hover:-translate-x-1/2 hover:translate-y-1 hover:brightness-110 z-10"
       >
         <ArrowDown className="h-10 w-10 animate-bounce" />
       </button>
