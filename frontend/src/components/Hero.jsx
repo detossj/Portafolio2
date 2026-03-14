@@ -46,7 +46,7 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px]">
-        <div className="max-w-[800px] ml-[10%]">
+        <div className="max-w-[800px] md:ml-[10%]">
           <div className="mb-4 text-xl font-medium tracking-wide text-brand-primary">
             {hero?.greeting}
           </div>
