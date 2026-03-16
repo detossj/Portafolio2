@@ -46,7 +46,7 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px]">
-        <div className="max-w-[800px] ml-[10%]">
+        <div className="max-w-[800px] md:ml-[10%]">
           <div className="mb-4 text-xl font-medium tracking-wide text-brand-primary">
             {hero?.greeting}
           </div>
@@ -67,7 +67,7 @@ const Hero = () => {
           <div className="flex flex-col gap-4 sm:flex-row md:flex-wrap">
             <Button 
               onClick={scrollToContact} 
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand-primary px-8 py-3 font-semibold text-brand-bg transition-all duration-300 hover:opacity-90 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 sm:w-auto"
+              className="group flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-brand-primary border border-brand-primary px-8 py-3 font-semibold text-brand-bg transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--color-brand-primary)] hover:text-white"
             >
               <Mail className="h-4 w-4" />
               Contactar
@@ -76,7 +76,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               onClick={() => window.open(hero?.githubUrl, '_blank')}
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-brand-primary bg-brand-bg/50 px-8 py-3 font-semibold text-brand-primary backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-brand-primary/10 sm:w-auto"
+              className="group flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-brand-primary bg-transparent px-8 py-3 font-semibold text-brand-primary backdrop-blur-sm transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--color-brand-primary)]"
             >
               <Github className="h-4 w-4" />
               Ver GitHub
