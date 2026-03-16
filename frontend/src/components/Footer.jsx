@@ -5,6 +5,7 @@ import usePortfolioStore from '@/stores/portfolioStore';
 
 const Footer = () => {
   const footer = usePortfolioStore((state) => state.footer);
+  const navItems = usePortfolioStore((state) => state.nav);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -26,11 +27,11 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             <h4 className="text-base font-semibold text-brand-text-primary mb-2">Navegación</h4>
             <ul className="list-none flex flex-col gap-2">
-              <li><a href="#about" className="text-brand-text-muted no-underline text-[0.9rem] transition-colors duration-300 hover:text-brand-primary">Sobre mí</a></li>
-              <li><a href="#skills" className="text-brand-text-muted no-underline text-[0.9rem] transition-colors duration-300 hover:text-brand-primary">Habilidades</a></li>
-              <li><a href="#projects" className="text-brand-text-muted no-underline text-[0.9rem] transition-colors duration-300 hover:text-brand-primary">Proyectos</a></li>
-              <li><a href="#experience" className="text-brand-text-muted no-underline text-[0.9rem] transition-colors duration-300 hover:text-brand-primary">Experiencia</a></li>
-              <li><a href="#contact" className="text-brand-text-muted no-underline text-[0.9rem] transition-colors duration-300 hover:text-brand-primary">Contacto</a></li>
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <a key={index} href={item.href} className="text-brand-text-muted no-underline text-[0.9rem] transition-colors duration-300 hover:text-brand-primary">{item.label}</a>
+                 </li>
+              ))} 
             </ul>
           </div>
 
