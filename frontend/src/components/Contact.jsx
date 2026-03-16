@@ -113,9 +113,9 @@ const Contact = () => {
                 <Button 
                   onClick={handleDownloadCV} 
                   variant="outline"
-                  className="w-full mt-auto bg-brand-bg text-brand-primary border-brand-primary font-semibold py-6 flex items-center justify-center gap-2 transition-all duration-300 hover:bg-brand-primary/10 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-brand-primary/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none hover:text-brand-text-primary"
+                  className="group w-full mt-auto flex items-center justify-center gap-2 rounded-lg border border-brand-primary bg-transparent py-6 font-semibold text-brand-primary backdrop-blur-sm transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--color-brand-primary)]"
                 >
-                  <Download className="w-4 h-4" />
+                  <Download className="h-4 w-4" />
                   Descargar CV
                 </Button>
               </CardContent>
@@ -185,11 +185,11 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full mt-auto bg-brand-primary text-brand-bg font-semibold py-6 flex items-center justify-center gap-2 transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-brand-primary/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                    className="group w-full mt-auto flex items-center justify-center gap-2 rounded-lg border border-brand-primary bg-brand-primary py-6 font-semibold text-brand-bg transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--color-brand-primary)] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:text-brand-bg hover:border-brand-primary"
                   >
                     {isSubmitting ? 'Enviando...' : (
                       <>
-                        <Send className="w-4 h-4" />
+                        <Send className="h-4 w-4" />
                         Enviar mensaje
                       </>
                     )}
