@@ -62,7 +62,7 @@ const Skills = () => {
               <Badge 
                 key={index} 
                 variant="secondary" 
-                className="cursor-default border border-brand-border bg-brand-surface px-6 py-3 text-[0.95rem] font-medium text-brand-primary transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary hover:bg-brand-primary/10"
+                className="cursor-default border border-brand-border bg-brand-surface px-6 py-3 text-[0.95rem] font-medium text-brand-primary transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary hover:bg-brand-primary/10 hover:shadow-xl hover:shadow-brand-primary/20"
               >
                 {skill}
               </Badge>
