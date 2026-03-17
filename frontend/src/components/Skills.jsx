@@ -12,7 +12,7 @@ const Skills = () => {
       <div className="mx-auto max-w-[1400px]">
         
         <div className="mb-16 text-center">
-          <h2 className="mb-4 pt-5 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-brand-text-primary">
+          <h2 className="mb-4 pt-30 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-brand-text-primary">
             Habilidades
           </h2>
           <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-brand-primary to-brand-secondary"></div>
@@ -62,7 +62,7 @@ const Skills = () => {
               <Badge 
                 key={index} 
                 variant="secondary" 
-                className="cursor-default border border-brand-border bg-brand-surface px-6 py-3 text-[0.95rem] font-medium text-brand-primary transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary hover:bg-brand-primary/10"
+                className="cursor-default border border-brand-border bg-brand-surface px-6 py-3 text-[0.95rem] font-medium text-brand-primary transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary hover:bg-brand-primary/10 hover:shadow-xl hover:shadow-brand-primary/20"
               >
                 {skill}
               </Badge>

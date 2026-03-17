@@ -23,7 +23,7 @@ const Experience = () => {
                 <Circle className="w-3 h-3 md:w-4 md:h-4 text-brand-bg" />
               </div>
 
-              <Card className="bg-brand-surface border border-brand-border transition-all duration-300 ease-in-out hover:border-brand-primary hover:translate-x-[5px] hover:shadow-lg hover:shadow-brand-primary/10">
+              <Card className="bg-brand-surface border border-brand-border transition-all duration-300 ease-in-out hover:border-brand-primary hover:translate-x-[5px]  transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30">
                 <div className="p-6">
 
                   <div className="flex justify-between items-start mb-2 gap-4 flex-wrap">
@@ -42,7 +42,7 @@ const Experience = () => {
                       <Badge 
                         key={techIndex} 
                         variant="secondary" 
-                        className="bg-brand-primary/10 text-brand-primary border border-brand-primary/30 text-[0.85rem] px-3 py-1"
+                        className="cursor-default bg-brand-primary/10 text-brand-primary border border-brand-primary/30 text-[0.85rem] px-3 py-1 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-primary/20 hover:shadow-lg hover:shadow-brand-primary/30"
                       >
                         {tech}
                       </Badge>

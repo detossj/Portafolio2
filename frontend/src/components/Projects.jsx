@@ -116,9 +116,11 @@ const Projects = () => {
           </TabsList>
 
           <TabsContent value="featured" className="mt-0 outline-none">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
               {featured.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <div key={project.id} className="w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] min-w-[280px] max-w-[350px]">
+                  <ProjectCard project={project} />
+                </div>
               ))}
             </div>
             {featured.length === 0 && (
@@ -127,9 +129,11 @@ const Projects = () => {
           </TabsContent>
 
           <TabsContent value="github" className="mt-0 outline-none">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+            <div className="flex flex-wrap justify-center gap-6 max-w-[900px] mx-auto">
               {githubRepos.map((repo) => (
-                <GithubRepoCard key={repo.id} repo={repo} />
+                <div key={repo.id} className="w-full md:w-[calc(50%-1.5rem)] max-w-[420px]">
+                  <GithubRepoCard repo={repo} />
+                </div>
               ))}
             </div>
             {githubRepos.length === 0 && (
