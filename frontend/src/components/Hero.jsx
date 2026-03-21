@@ -38,7 +38,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-bg px-6 py-24 md:px-8"
+      className="relative flex flex-col min-h-screen overflow-hidden bg-brand-bg px-6 pt-24 pb-6 md:px-8"
     >
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
         <Aurora
@@ -49,8 +49,8 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1400px]">
-        <div className="max-w-[800px] md:ml-[10%]">
+      <div className="relative z-10 flex-1 flex items-center mx-auto w-full max-w-[1400px]">
+        <div className="max-w-[800px] md:ml-[10%] w-full">
           <div className="mb-4 text-xl font-medium tracking-wide text-brand-primary">
             {hero?.greeting}
           </div>
@@ -89,12 +89,14 @@ const Hero = () => {
         </div>
       </div>
       
-      <button 
-        onClick={scrollToAbout} 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer border-none bg-transparent p-2 text-brand-primary transition-all duration-300 hover:-translate-x-1/2 hover:translate-y-1 hover:brightness-110 z-10"
-      >
-        <ArrowDown className="h-10 w-10 animate-bounce" />
-      </button>
+      <div className="relative z-10 flex w-full justify-center pb-4 mt-8">
+        <button 
+          onClick={scrollToAbout} 
+          className="cursor-pointer border-none bg-transparent p-2 text-brand-primary transition-all duration-300 hover:translate-y-1 hover:brightness-110"
+        >
+          <ArrowDown className="h-10 w-10 animate-bounce" />
+        </button>
+      </div>
     </section>
   );
 };
