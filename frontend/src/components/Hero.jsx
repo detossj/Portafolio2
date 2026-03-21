@@ -6,7 +6,10 @@ import Aurora from './ui/Aurora';
 
 const Hero = () => {
   const hero = usePortfolioStore((state) => state.hero);
-  const [auroraColors, setAuroraColors] = useState(['', '', '']);
+  const theme = usePortfolioStore((state) => state.theme); 
+
+  const [auroraColors, setAuroraColors] = useState(['#00b8fc', '#3b82f6', '#000000']);
+  
   useEffect(() => {
     const getRealColor = (cssVar, fallbackHex) => {
       let color = getComputedStyle(document.documentElement).getPropertyValue(cssVar).trim();
@@ -17,12 +20,13 @@ const Hero = () => {
       return color;
     };
 
-    const primary = getRealColor('--color-brand-primary', '');
-    const secondary = getRealColor('--color-brand-secondary', '');
-    const bg = getRealColor('--color-brand-bg', '');
+    const primary = getRealColor('--color-brand-primary', '#00b8fc');
+    const secondary = getRealColor('--color-brand-secondary', '#3b82f6');
+    const bg = getRealColor('--color-brand-bg', '#000000');
     
     setAuroraColors([primary, secondary, bg]);
-  }, [hero]); 
+    
+  }, [hero, theme]);
   const scrollToContact = () => {
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
   };
