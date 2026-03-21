@@ -100,3 +100,13 @@ export const getTheme = async (req, res) => {
         res.status(500).json({ error: 'Error al obtener Theme desde Laravel' });
     }
 };
+
+export const getAll = async (req, res) => {
+    try {
+        const response = await apiClient.get('/portfolio/all');
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error real de Axios:", error.message);
+        res.status(500).json({ error: 'Error al obtener all desde Laravel' });
+    }
+};
