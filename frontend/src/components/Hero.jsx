@@ -64,7 +64,7 @@ const Hero = () => {
             {hero?.title}
           </p>
           
-          <p className="mb-10 max-w-[600px] text-[1.1rem] leading-relaxed text-brand-text-muted">
+          <p className="mb-6 md:mb-10 max-w-[600px] text-[1.1rem] leading-relaxed text-brand-text-muted">
             {hero?.bio}
           </p>
           
@@ -89,7 +89,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="relative z-10 flex w-full justify-center pb-4 mt-8">
+      <div className="relative z-10 flex w-full justify-center pb-4 mt-4">
         <button 
           onClick={scrollToAbout} 
           className="cursor-pointer border-none bg-transparent p-2 text-brand-primary transition-all duration-300 hover:translate-y-1 hover:brightness-110"
