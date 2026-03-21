@@ -9,7 +9,8 @@ import {
     getProjects,
     getContact,
     getFooter,
-    getTheme
+    getTheme,
+    getAll
 } from '../controllers/portfolioController.js';
 
 const router = express.Router();
@@ -24,5 +25,6 @@ router.get('/projects', getProjects);
 router.get('/contact', getContact);
 router.get('/footer', getFooter);
 router.get('/theme', getTheme);
+router.get('/all', getAll);
 
 export default router;
