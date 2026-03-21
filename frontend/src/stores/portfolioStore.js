@@ -9,7 +9,8 @@ import {
   getProjects, 
   getContact, 
   getFooter,
-  getTheme 
+  getTheme,
+  getAll 
 } from '@/services/portfolioService'; 
 
 const usePortfolioStore = create((set, get) => ({
@@ -169,19 +170,19 @@ const usePortfolioStore = create((set, get) => ({
   fetchAll: async () => {
     set({ cargando: true });
     try {
-      // Usamos Promise.all para que todas las peticiones salgan al mismo tiempo (mucho más rápido)
-      await Promise.all([
-        get().fetchNav(),
-        get().fetchHero(),
-        get().fetchAbout(),
-        get().fetchSkills(),
-        get().fetchEducation(),
-        get().fetchExperience(),
-        get().fetchProjects(),
-        get().fetchContact(),
-        get().fetchFooter(),
-        get().fetchTheme()
-      ]);
+      const data = await getAll();
+      set({
+        nav: data.nav || [],
+        hero: data.hero || null,
+        about: data.about || null,
+        skills: data.skills || [],
+        education: data.education || [],
+        experience: data.experience || [],
+        projects: data.projects || [],
+        contact: data.contact || null,
+        footer: data.footer || null,
+        theme: data.theme || null,
+      });
     } catch (error) {
       console.error("Error cargando toda la data inicial:", error);
     } finally {
