@@ -107,3 +107,13 @@ export const getTheme = async () => {
     throw error;
   }
 };
+
+export const getAll = async () => {
+  try {
+    const response = await api_url.get('/portfolio/all');
+    return response.data;
+  } catch (error) {
+    console.error("Error cargando all:", error);
+    throw error;
+  }
+};
