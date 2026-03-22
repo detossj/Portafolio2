@@ -13,13 +13,14 @@ import usePortfolioStore from '@/stores/portfolioStore';
 
 
 const HomePage = () => {
-  const { fetchAll, cargando } = usePortfolioStore();
+  const { fetchAll, cargando, theme } = usePortfolioStore();
 
   useEffect(() => {
     fetchAll();
   }, [fetchAll]);
 
-  if (cargando) {
+
+  if (cargando || !theme) {
     return (
       <div 
         className="flex min-h-screen w-full items-center justify-center transition-colors duration-300"
