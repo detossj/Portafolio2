@@ -12,7 +12,7 @@ const Skills = () => {
       <div className="mx-auto max-w-[1400px]">
         
         <div className="mb-16 text-center">
-          <h2 className="mb-4 pt-30 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-brand-text-primary">
+          <h2 className="mb-4 pt-5 md:pt-30 text-[clamp(2.5rem,5vw,3.5rem)] font-black text-brand-text-primary">
             Habilidades
           </h2>
           <div className="mx-auto h-1 w-20 rounded-sm bg-gradient-to-r from-brand-primary to-brand-secondary"></div>
