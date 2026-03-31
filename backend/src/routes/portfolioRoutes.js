@@ -10,7 +10,8 @@ import {
     getContact,
     getFooter,
     getTheme,
-    getAll
+    getAll,
+    getCV
 } from '../controllers/portfolioController.js';
 
 const router = express.Router();
@@ -26,5 +27,6 @@ router.get('/contact', getContact);
 router.get('/footer', getFooter);
 router.get('/theme', getTheme);
 router.get('/all', getAll);
+router.get('/download-cv', getCV);
 
 export default router;
