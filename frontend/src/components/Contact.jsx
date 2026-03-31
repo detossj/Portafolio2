@@ -7,6 +7,7 @@ import { Label } from './ui/label';
 import { Mail, Phone, MapPin, Github, Download, Send } from 'lucide-react';
 import { toast } from "sonner";
 import usePortfolioStore from '@/stores/portfolioStore';
+import { getCV } from '@/services/portfolioService';
 
 const Contact = () => {
   const contact = usePortfolioStore((state) => state.contact) || {};
@@ -40,10 +41,34 @@ const Contact = () => {
     }, 1500);
   };
 
-  const handleDownloadCV = () => {
+  const handleDownloadCV = async () => {
     toast.info("Descargando CV...", {
       description: "El archivo se descargará en breve.",
     });
+  
+    try {
+      const blob = await getCV();
+      
+      const url = window.URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'JorgeRubilar_CV.pdf');
+      
+      document.body.appendChild(link);
+      link.click();
+      
+      link.parentNode.removeChild(link);
+      window.URL.revokeObjectURL(url);
+  
+      toast.success("¡Descarga completada!");
+  
+    } catch (error) {
+      console.error("Error al descargar el CV:", error);
+      toast.error("Error en la descarga", {
+        description: "No se pudo descargar el archivo en este momento.",
+      });
+    }
   };
 
   return (
