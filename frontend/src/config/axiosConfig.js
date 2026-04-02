@@ -6,6 +6,7 @@ const api_url = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
+    'x-api-key': import.meta.env.VITE_MI_CLAVE_SECRETA
   },
 });
 
