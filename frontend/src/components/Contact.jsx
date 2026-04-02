@@ -8,6 +8,7 @@ import { Mail, Phone, MapPin, Github, Download, Send } from 'lucide-react';
 import { toast } from "sonner";
 import usePortfolioStore from '@/stores/portfolioStore';
 import { getCV } from '@/services/portfolioService';
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const contact = usePortfolioStore((state) => state.contact) || {};
@@ -31,14 +32,34 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID; 
+      const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; 
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY; 
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+
       toast.success("¡Mensaje enviado!", {
         description: "Gracias por contactarme. Te responderé pronto.",
       });
+      
       setFormData({ name: '', email: '', subject: '', message: '' });
+      
+    } catch (error) {
+      console.error("Error al enviar el correo:", error);
+      toast.error("Error al enviar", {
+        description: "Hubo un problema al enviar el mensaje. Inténtalo nuevamente.",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const handleDownloadCV = async () => {
