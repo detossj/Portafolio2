@@ -5,6 +5,6 @@ export const apiClient = axios.create({
   baseURL: configEnv.LARAVEL_API_URL,
   headers: {
     'Content-Type': 'application/json',
-    'x-api-key': configEnv.MI_CLAVE_SECRETA
+    'x-api-key': import.meta.env.VITE_MI_CLAVE_SECRETA
   },
 });
