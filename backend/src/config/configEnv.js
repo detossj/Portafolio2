@@ -5,4 +5,5 @@ dotenv.config();
 export default {
   PORT: process.env.PORT,
   LARAVEL_API_URL: process.env.LARAVEL_API_URL,
+  MI_CLAVE_SECRETA: process.env.MI_CLAVE_SECRETA
 };
